@@ -1,0 +1,16 @@
+{
+    "name": "slaknoah/mvc-practice",
+    "authors": [
+        {
+            "name": "slaknoah",
+            "email": "slaknoah@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {},
+    "description": ""
+}
