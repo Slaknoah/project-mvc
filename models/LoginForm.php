@@ -22,7 +22,7 @@ class LoginForm extends Model
 
     public function login()
     {
-        $user = User::findOne(['email' => $this->email]);
+        $user = (new User)->findOne(['email' => $this->email]);
 
         if (!$user) {
             $this->addError('email', 'User does not exist with this email');
@@ -34,6 +34,14 @@ class LoginForm extends Model
             return false;
         }
 
-        Application::$app->login($user);
+        return Application::$app->login($user);
+    }
+
+    public function labels(): array
+    {
+        return [
+            'email' => 'Your Email',
+            'password'  => 'Password'
+        ];
     }
 }

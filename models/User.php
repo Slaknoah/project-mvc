@@ -3,12 +3,13 @@ namespace app\models;
 
 use app\core\DBModel;
 use app\core\Model;
+use app\core\UserModel;
 
 /**
  * Class UserModel
  * @package app\models
  */
-class User extends DBModel
+class User extends UserModel
 {
     public string $firstname = '';
     public string $lastname = '';
@@ -16,9 +17,14 @@ class User extends DBModel
     public string $password = '';
     public string $confirmPassword = '';
 
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'users';
+    }
+
+    public static function primaryKey(): string
+    {
+        return 'id';
     }
 
     public function rules(): array
@@ -54,5 +60,10 @@ class User extends DBModel
     public function attributes(): array
     {
         return [ 'firstname', 'lastname', 'email', 'password' ];
+    }
+
+    public function getDisplayName(): string
+    {
+        return $this->firstname. ' ' . $this->lastname;
     }
 }

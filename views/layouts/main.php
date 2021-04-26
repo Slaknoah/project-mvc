@@ -1,4 +1,6 @@
-<?php use app\core\Application; ?>
+<?php
+    use app\core\Application;
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title><?php echo $this->title ?></title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,6 +30,7 @@
                 </li>
             </ul>
 
+            <?php if (Application::isGuest()): ?>
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
@@ -36,6 +39,18 @@
                     <a class="nav-link" href="/register">Register</a>
                 </li>
             </ul>
+            <?php else: ?>
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">
+                        <?php echo Application::$app->user->getDisplayName() ?>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+            <?php endif; ?>
         </div>
     </div>
 </nav>
