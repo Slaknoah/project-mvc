@@ -11,7 +11,7 @@ class Response
 {
     public function setStatusCode(string $code)
     {
-        http_response_code($code);
+        if (is_numeric($code)) http_response_code($code);
     }
 
     public function redirect(string $url)
