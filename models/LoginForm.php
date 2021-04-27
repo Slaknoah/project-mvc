@@ -15,7 +15,7 @@ class LoginForm extends Model
     public function rules(): array
     {
         return [
-            'email' => [self::RULE_REQUIRED, self::RULE_EMAIL],
+            'email' => [self::RULE_REQUIRED],
             'password'  => [self::RULE_REQUIRED]
         ];
     }
@@ -40,7 +40,7 @@ class LoginForm extends Model
     public function labels(): array
     {
         return [
-            'email' => 'Your Email',
+            'email' => 'Login',
             'password'  => 'Password'
         ];
     }

@@ -8,14 +8,15 @@ use app\core\View;
 use app\models\Contact;
 
 
-$this->title = 'Contact';
+$this->title = 'Add Task';
 ?>
 
-<h1>Contact</h1>
+<h1>Add Task</h1>
 
 <?php  $form = Form::begin('', 'post'); ?>
-<?php echo $form->field($model, 'subject'); ?>
+<?php echo $form->field($model, 'name'); ?>
 <?php echo $form->field($model, 'email'); ?>
-<?php echo new TextareaField($model, 'body'); ?>
+<?php echo $form->field($model, 'title'); ?>
+<?php echo new TextareaField($model, 'description'); ?>
     <button type="submit" class="btn btn-primary">Submit</button>
 <?php Form::end() ?>

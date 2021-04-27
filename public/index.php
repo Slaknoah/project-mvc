@@ -20,15 +20,14 @@ $app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [ SiteController::class, 'home' ]);
 
-$app->router->get('/contact',  [ SiteController::class, 'contact' ]);
+$app->router->get('/add-task',  [ SiteController::class, 'addTask' ]);
+$app->router->post('/add-task',  [ SiteController::class, 'addTask' ]);
 
-$app->router->post('/contact', [ SiteController::class, 'contact']);
+$app->router->get('/edit-task',  [ SiteController::class, 'editTask' ]);
+$app->router->post('/edit-task',  [ SiteController::class, 'editTask' ]);
 
 $app->router->get('/login', [ AuthController::class, 'login']);
 $app->router->post('/login', [ AuthController::class, 'login']);
-
-$app->router->get('/register', [ AuthController::class, 'register']);
-$app->router->post('/register', [ AuthController::class, 'register']);
 
 $app->router->get('/logout', [ AuthController::class, 'logout']);
 
